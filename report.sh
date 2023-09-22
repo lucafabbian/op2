@@ -17,6 +17,10 @@ jupyter nbconvert --to markdown TSP.ipynb
 
 bun ../polish-report.ts
 
+# IMPORTANT: KEEP SURE THERE ARE NO SPACE BETWEEN INLINE MATHS AND $
+# $formula = dfgd$
+# otherwise jupyter will recognize them but pandoc will not
+
 pandoc -s TSP.md -t pdf -o TSP.pdf \
   --pdf-engine-opt="-interaction=nonstopmode" \
   --filter pandoc-citeproc --bibliography="refs.bib" --csl="ieee.csl" -N -V title:"$TITLE"
