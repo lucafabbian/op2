@@ -9,14 +9,14 @@
 
 
 
-#ifndef DEFAULT_HARDFIXING_P
-#define DEFAULT_HARDFIXING_P 700
+#ifndef HARDFIXING_P
+#define HARDFIXING_P 700
 #endif
 
 
 void hardfix(TSPSolution &firstSol, time_t timeLimit, const char name[]) {
 
-  const int pFix = DEFAULT_HARDFIXING_P; // %1000, i.e. 30%
+  const int pFix = HARDFIXING_P; // %1000, i.e. 30%
   printf("default hardfixing p = %d\n", pFix);
 
   TSP &tsp = *firstSol.tsp;

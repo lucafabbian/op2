@@ -1,7 +1,6 @@
 #!/usr/bin/env bun
 //@ts-nocheck
 
-const foo = Bun.file("runs/annealing-0.txt");
 
 const extractCost = (text : string) => {
   const idx1 = text.indexOf("Solution cost: ");
@@ -21,7 +20,7 @@ const plotToFile = async (file : string, testbed: string[], algs : string[]) => 
   for(let i = 0; i < testbed.length; i++) {
     r += testbed[i] + ","
     for(let k = 0; k < algs.length; k++){
-      const numb = extractCost(await Bun.file(`./runs/${algs[k]}-${i}.txt`).text());
+      const numb = extractCost(await Bun.file(`./results/${algs[k]}-${i}.txt`).text());
       r += String(numb)
       if(k < algs.length - 1) {
         r += ","

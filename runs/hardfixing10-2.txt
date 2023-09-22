@@ -1,5 +1,0 @@
-Running hardfixing ./data/att48.tsp, time=1695348090
-default hardfixing p = 100
-TIMECOST:1695348090 33522
-Solution cost: 33522
-Solution plot: gnuplot ./plot/gnu/commandE84DFA61-B135A930-77AA4C80-841B-C461

@@ -1,0 +1,6 @@
+Running hardfixing ./data/a280.tsp, time=1695347489
+default hardfixing p = 100
+TIMECOST:1695347501 2611
+TIMECOST:1695347505 2579
+Solution cost: 2579
+Solution plot: gnuplot ./plot/gnu/command019C7E78-71F913E0-C39040F4-8F55-D4AC

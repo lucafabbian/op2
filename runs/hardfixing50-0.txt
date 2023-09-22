@@ -1,5 +1,0 @@
-Running hardfixing ./data/pr1002.tsp, time=1695364102
-default hardfixing p = 500
-TIMECOST:1695364177 278605
-Solution cost: 278605
-Solution plot: gnuplot ./plot/gnu/commandBD4348A2-7B0D7E1-96844D60-A5B2-D7C5A

@@ -1,8 +1,0 @@
-Running hardfixing ./data/kroA150.tsp, time=1695350490
-default hardfixing p = 100
-TIMECOST:1695350495 27494
-TIMECOST:1695350498 26580
-TIMECOST:1695350499 26579
-TIMECOST:1695350500 26524
-Solution cost: 26524
-Solution plot: gnuplot ./plot/gnu/commandB87FE645-CC6757FE-33424F47-8829-D97C

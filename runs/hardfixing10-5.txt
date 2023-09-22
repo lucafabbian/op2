@@ -1,6 +1,0 @@
-Running hardfixing ./data/eil101.tsp, time=1695349890
-default hardfixing p = 100
-TIMECOST:1695349890 630
-TIMECOST:1695349891 629
-Solution cost: 629
-Solution plot: gnuplot ./plot/gnu/command17636EDC-49146992-F0F04BEC-ADE3-4977

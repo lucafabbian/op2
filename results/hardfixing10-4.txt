@@ -1,0 +1,7 @@
+Running hardfixing ./data/bier127.tsp, time=1695349290
+default hardfixing p = 100
+TIMECOST:1695349292 119039
+TIMECOST:1695349293 118715
+TIMECOST:1695349293 118282
+Solution cost: 118282
+Solution plot: gnuplot ./plot/gnu/command960636EF-67E40E49-1E744B8C-9006-118F

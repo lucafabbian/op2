@@ -7,16 +7,18 @@
 #include "cplex/hardfixing.cpp"
 #include "cplex/localbranch.cpp"
 
-
+#ifndef TSPFILE
+#define TSPFILE argv[1]
+#endif
 
 
 
 #ifdef RUN_VNS
 int main(int argc, char **argv){
-  printf("Running vns %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running vns %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -29,10 +31,10 @@ int main(int argc, char **argv){
 
 #ifdef RUN_TABULINEAR
 int main(int argc, char **argv){
-  printf("Running tabulinear %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running tabulinear %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -44,10 +46,10 @@ int main(int argc, char **argv){
 
 #ifdef RUN_TABUSTEP
 int main(int argc, char **argv){
-  printf("Running tabustep %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running tabustep %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -59,10 +61,10 @@ int main(int argc, char **argv){
 
 #ifdef RUN_TABURANDOM
 int main(int argc, char **argv){
-  printf("Running taburandom %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running taburandom %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -74,10 +76,10 @@ int main(int argc, char **argv){
 
 #ifdef RUN_ANNEALING
 int main(int argc, char **argv){
-  printf("Running annealing %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running annealing %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -89,10 +91,10 @@ int main(int argc, char **argv){
 
 #ifdef RUN_GENETIC
 int main(int argc, char **argv){
-  printf("Running genetic %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running genetic %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
@@ -106,13 +108,13 @@ int main(int argc, char **argv){
 #ifdef RUN_LOCALBRANCH
 
 int main(int argc, char **argv){
-  printf("Running localBranching %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running localBranching %s, time=%ld\n", TSPFILE, time(NULL));
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
-  localBranch(sol, timeLimit, argv[1]);
+  localBranch(sol, timeLimit, TSPFILE);
   printf("Solution cost: %d\n", sol.cost);
   sol.plot();
 }
@@ -122,14 +124,14 @@ int main(int argc, char **argv){
 #ifdef RUN_HARDFIXING
 
 int main(int argc, char **argv){
-  printf("Running hardfixing %s, time=%ld\n", argv[1], time(NULL));
+  printf("Running hardfixing %s, time=%ld\n", TSPFILE, time(NULL));
 
   time_t timeLimit = time(NULL) + DEFAULT_TIMELIMIT;
-  TSP tsp(argv[1]);
+  TSP tsp(TSPFILE);
   TSPSolution sol(&tsp);
   nearest(&sol, timeLimit); // 10 minutes
   twoOpt(&sol);
-  hardfix(sol, timeLimit, argv[1]);
+  hardfix(sol, timeLimit, TSPFILE);
   printf("Solution cost: %d\n", sol.cost);
   sol.plot();
 }
