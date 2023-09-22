@@ -25,7 +25,7 @@ dashes = ['-',  # solid line
   ]
 
 markers = ['+', 'x', 's', '^', 'o', 'd', '^', 's', 'x', '+']
-colors = ['r', 'b', 'y', 'g', 'm', 'c', 'k', 'b', 'w', 'b']
+colors = ['r', 'b', 'y', 'g', 'm', 'c', 'k', 'b', 'r', 'b']
 
 
 class CmdLineParser(object):
