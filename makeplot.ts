@@ -7,7 +7,6 @@ const extractCost = (text : string) => {
   if(idx1 !== -1) {
     return Number(text.substring(idx1 + "Solution cost: ".length).match(/\d+/)[0]);
   }
-
 }
 
 
@@ -57,15 +56,24 @@ const algs1 = [
 ]
 
 const algs2 = [
-  'hardfixing',
+  'hardfixing10',
+  'hardfixing70',
   'localbranch',
+]
+
+const hardfixing = [
+  'hardfixing10',
+  'hardfixing30',
+  'hardfixing50',
+  'hardfixing70',
+  'hardfixing90',
 ]
 
 for(const [name, algs] of [
   ['metaheur', algs1],
   ['mateheur', algs2],
   ['totalheur', [...algs1, ...algs2]],
-
+  ['hardfixing', hardfixing],
 ]){
   await plotToFile(`plot/perf/${name}.csv`, testbed, algs);
   Bun.spawn(['python3', 'plot/perfprof.py', '-D', ',', `plot/perf/${name}.csv`, `imgs/${name}.png`, '-P', " ", '--x-label', 'Cost ratio', '-M', '-1'])

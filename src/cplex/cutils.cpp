@@ -166,9 +166,9 @@ typedef struct {
 
 int countComponents(const int &dim, double* xstar, int* successors, int* comp){ //, edge* close_cycle_edges =NULL, int* num_closed_cycles = NULL) {
 
-    int num_comp = 0;
+  int num_comp = 0;
 
-    for (int i = 0; i < dim; i++ ) {
+  for (int i = 0; i < dim; i++ ) {
 		if ( comp[i] >= 0 ) continue;
 
 		// a new component is found
@@ -200,11 +200,60 @@ int countComponents(const int &dim, double* xstar, int* successors, int* comp){ 
     return num_comp;
 }
 
+void patchingHeur(const TSP &tsp, const int &dim, const int &ncomp, int* successors, int* comp){
+  if(ncomp == 1) return;
+
+  int compStarts[ncomp];
+  for (int i = 0; i < ncomp; i++) compStarts[i] = -1;
+
+  // find a starting node for each component
+  for(int i = 0; i < dim; i++){
+    if(compStarts[comp[i]] == -1){
+      compStarts[comp[i]] = i;
+    }
+  }
+
+  int index1, index2;
+
+  for(int mergingWith = 1; mergingWith <ncomp; mergingWith++){
+    index1 = compStarts[0];
+    index2 = compStarts[mergingWith];
+
+    int bestCostGain = INT_MAX;
+    int bestIndex1 = -1;
+    int bestIndex2 = -1;
+
+    do {
+      do{
+        int previousCost = tsp.cost(index1, successors[index1]) + tsp.cost(successors[index2], index2);
+        int newCost = std::min(
+          tsp.cost(index1, index2) + tsp.cost(successors[index1], successors[index2]),
+          tsp.cost(index1, successors[index2]) + tsp.cost(successors[index1], index2) // optimistic cost after 2 Opt
+        );
+
+        int totalCost = newCost - previousCost;
+        if(totalCost < bestCostGain){
+          bestCostGain = totalCost;
+          bestIndex1 = index1;
+          bestIndex2 = index2;
+        }
+        index2 = successors[index2];
+      }while(index2 != compStarts[mergingWith]);
+      index1 = successors[index1];
+    }while(index1 != compStarts[0]);
+
+    // perform the swap
+    int nodeA = bestIndex1;
+    int nodeB = bestIndex2;
+    int nodeC = successors[bestIndex1];
+    int nodeD = successors[bestIndex2];
+
+    successors[nodeA] = nodeD;
+    successors[nodeB] = nodeC;
 
 
-struct TSPCallbackData {
-  int ncols;
-  TSP *tsp;
-};
+  }
+
+}
 
 #endif

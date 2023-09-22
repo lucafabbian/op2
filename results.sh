@@ -28,10 +28,11 @@ run_testbed(){
   ./bin/$1  "./data/pr1002.tsp" >  "runs/$1-0.txt"
 
 }
-run_testbed hardfixing10 -DRUN_HARDFIXING -DHARDFIXING_P=100
-run_testbed hardfixing30 -DRUN_HARDFIXING -DHARDFIXING_P=300
-run_testbed hardfixing50 -DRUN_HARDFIXING -DHARDFIXING_P=500
-run_testbed hardfixing90 -DRUN_HARDFIXING -DHARDFIXING_P=900
+#run_testbed hardfixing10 -DRUN_HARDFIXING -DHARDFIXING_P=100
+#run_testbed hardfixing30 -DRUN_HARDFIXING -DHARDFIXING_P=300
+#run_testbed hardfixing50 -DRUN_HARDFIXING -DHARDFIXING_P=500
+#run_testbed hardfixing70 -DRUN_HARDFIXING -DHARDFIXING_P=700
+#run_testbed hardfixing90 -DRUN_HARDFIXING -DHARDFIXING_P=900
 
 #run_testbed tabulinear -DRUN_TABULINEAR
 #run_testbed tabustep -DRUN_TABUSTEP

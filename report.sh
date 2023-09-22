@@ -21,6 +21,8 @@ pandoc -s TSP.md -t pdf -o TSP.pdf \
   --pdf-engine-opt="-interaction=nonstopmode" \
   --filter pandoc-citeproc --bibliography="refs.bib" --csl="ieee.csl" -N -V title:"$TITLE"
 
+rm ../TSP.pdf
+mv TSP.pdf ..
 
 # Older code to use intermediate LaTeX
 #cp TSP.ipynb "./report/$TITLE.ipynb"

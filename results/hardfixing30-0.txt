@@ -1,0 +1,4 @@
+Running hardfixing ./data/pr1002.tsp
+default hardfixing p = 300
+Solution cost: 278605
+patched by hand
